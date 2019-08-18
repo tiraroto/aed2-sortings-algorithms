@@ -19,3 +19,40 @@ int numeroAleatorio(int min, int max){
     return num;
 }
 
+/*
+* Gera números aleatórios distintos e adiciona-os no vetor.
+* @param qtNum é a quantidade de números a serem gerados.
+* @param min é o valor mínimo que um número poderá ter.
+* @param max é o valor máximo que um número poderá ter.
+*/
+int* numerosAleatorios(int qtNum, int min, int max){
+    int* vet = new int[qtNum]; //vetor que será retornado.
+    
+    for (int i = 0; i < qtNum; i++){
+        int num = numeroAleatorio(min, max);
+
+        //Checar se numero ja existe no vetor.
+        for (int j = 0; j <= i; j++){
+            if (vet[j] == num) {
+                i--;
+                break; // para o loop caso encontre o número no vetor.
+            }
+
+            //Adicionar numero no vetor.
+            if (j == i){
+                vet[i] = num;
+            }
+        }
+
+    }
+
+    return vet;
+
+}
+
+int main (){
+
+
+
+    return 0;
+}
