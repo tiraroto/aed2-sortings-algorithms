@@ -10,7 +10,7 @@ int numeroAleatorio(int min, int max){
     int num; //número aleatório a ser gerado.
 
     if (initFlag == 0){
-        srand(time(NULL));
+        srand(time(NULL)); //define a seed de acordo com o relógio da máquina.
         initFlag = 1;
     }
 
@@ -43,7 +43,6 @@ int* numerosAleatorios(int qtNum, int min, int max){
                 vet[i] = num;
             }
         }
-
     }
 
     return vet;
