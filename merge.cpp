@@ -174,38 +174,38 @@ void mergeSort(int* vet, int inicio, int fim, int modo) {
 */
 void avaliar() {
     unsigned int n = 100000;
-    int op = 5; // numero de operações
+    int op = 5; // Numero de operações
     double* tempo = new double[op]; // Vetor que armazena os tempos de execução
 
-    //Alocação dos vetores auxiliares
+    // Alocação dos vetores auxiliares
     int** vetores = new int*[op];
     for (int i = 0; i < op; i++){
         vetores[i] = new int[n];
     }
 
-    //Vetor desordenado
+    // Vetor desordenado
     vetores[0] = numerosAleatorios(n, 0, n);
 
-    //Copia o primeiro vetor para os demais
+    / Copia o primeiro vetor para os demais
     for (int i = 1; i < op; i++){
         for (int j = 0; j < n; j++){
             vetores[i][j] = vetores[0][j];
         }
     }
     
-    //Vetor Decrescente
+    // Vetor Decrescente
     mergeSort(vetores[1], 0, n, 1);
 
-    //Vetor Crescente
+    // Vetor Crescente
     mergeSort(vetores[2], 0, n, 0);
 
-    //Vetor Crescente/Decrescente
-    mergeSort(vetores[3], 0, n/2, 0); // ordena a primeira metade do vetor em ordem crescente
-    mergeSort(vetores[3], (n/2)+1, n, 1); // ordena a segunda metade do vetor em ordem decrescente
+    // Vetor Crescente/Decrescente
+    mergeSort(vetores[3], 0, n/2, 0); // Ordena a primeira metade do vetor em ordem crescente
+    mergeSort(vetores[3], (n/2)+1, n, 1); // Ordena a segunda metade do vetor em ordem decrescente
 
     // Vetor Decrescente/Crescente
-    mergeSort(vetores[4], 0, n/2, 1); // ordena a primeira metade do vetor em ordem decrescente
-    mergeSort(vetores[4], (n/2)+1, n, 0); // ordena a segunda metade do vetor em ordem crescente
+    mergeSort(vetores[4], 0, n/2, 1); // Ordena a primeira metade do vetor em ordem decrescente
+    mergeSort(vetores[4], (n/2)+1, n, 0); // Ordena a segunda metade do vetor em ordem crescente
 
     for (int i = 0; i < op; i++){
         clock_t tick_inicio, tick_fim; 
