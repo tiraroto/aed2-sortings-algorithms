@@ -5,7 +5,10 @@
 
 using namespace std;
 
-//Gera um número aleatório
+/* Gera um número aleatório
+* @param min  Valor mínimo que o número pode ter.
+* @param max  Valor máximo que o número pode ter.
+*/
 int numeroAleatorio(int min, int max){
 
     static int initFlag = 0; // Flag de inicialização para chamada única do método srand().
@@ -56,6 +59,7 @@ int* numerosAleatorios(int qtNum, int min, int max){
 
 }
 
+// Função de debug para imprimir vetores (pode ser apagada)
 template <class T>
 void imprimeVetor(T* vet, int n){
     cout << vet[0];
@@ -141,7 +145,13 @@ void merge(int* v, int inicio, int meio, int fim, int modo) {
 
 }
 
-//Merge Sort
+/* Merge Sort
+* Aplica o algoritmo Merge-Sort em vetor dado.
+* @param vet  Vetor de inteiros a ser ordenado.
+* @param inicio  posição de início da ordenação.
+* @param fim  posição final da ordenação.
+* @param modo  Ordenação. (0-Crescente/1-Decrescente)
+*/
 void mergeSort(int* vet, int inicio, int fim, int modo) {
     if (inicio < fim){
         int meio = floor((fim + inicio)/2); // calcula a metade do vetor.
@@ -151,7 +161,12 @@ void mergeSort(int* vet, int inicio, int fim, int modo) {
     }
 }
 
-// Avalia o tempo de execução do algoritmo Merg-Sort com 100.000 números ordenados de formas distintas
+/* Avaliação 
+* Avalia o tempo de execução do algoritmo Merg-Sort com 100.000 números ordenados de formas distintas
+* e imprime o tempo de duração de cada operação.
+* As formas de ordenação são: desordenado, crescente, decrescente, metade crescente e metade decrescente, 
+* metade decrescente e metade crescente.
+*/
 void avaliar() {
     unsigned int n = 100000;
     int op = 5; // numero de operações
