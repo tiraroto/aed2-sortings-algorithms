@@ -186,7 +186,7 @@ void avaliar() {
     // Vetor desordenado
     vetores[0] = numerosAleatorios(n, 0, n);
 
-    / Copia o primeiro vetor para os demais
+    // Copia o primeiro vetor para os demais
     for (int i = 1; i < op; i++){
         for (int j = 0; j < n; j++){
             vetores[i][j] = vetores[0][j];
