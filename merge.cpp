@@ -12,14 +12,14 @@ using namespace std;
 int numeroAleatorio(int min, int max){
 
     static int initFlag = 0; // Flag de inicialização para chamada única do método srand().
-    int num; //número aleatório a ser gerado.
+    int num; // Número aleatório a ser gerado.
 
     if (initFlag == 0){
-        srand(time(NULL)); //define a seed de acordo com o relógio da máquina.
+        srand(time(NULL)); // Define a seed de acordo com o relógio da máquina.
         initFlag = 1;
     }
 
-    num = rand() % (max - min + 1) + min; //gera um número aleatório
+    num = rand() % (max - min + 1) + min; // Gera um número aleatório
     
     return num;
 }
@@ -27,7 +27,7 @@ int numeroAleatorio(int min, int max){
 /* Embaralha Vetor
 * Escolhe uma posição aleatoria do vetor e troca com a de iteração.
 * @param vet  Vetor a ser embaralhado.
-* @param tam  tamanho do vetor.
+* @param tam  Tamanho do vetor.
 * @param min  posição de início do embaralhamento.
 */
 void embaralhaVetor(int* vet, int tam, int min){
@@ -85,8 +85,8 @@ void imprimeVetor(T* vet, int tam){
 void merge(int* v, int inicio, int meio, int fim, int modo) {
     int *aux; // Vetor auxiliar 
     int p1, p2; // Posição de verificação dos vetores. (index)
-    int tamanho; // tamanho do vetor
-    bool fim1 = false, fim2 = false; // indica o fim dos vetores.
+    int tamanho; // Tamanho do vetor
+    bool fim1 = false, fim2 = false; // Indica o fim dos vetores.
 
     tamanho = fim - inicio + 1;
     aux = new int[tamanho];
@@ -139,7 +139,7 @@ void merge(int* v, int inicio, int meio, int fim, int modo) {
             
         }
 
-        // copia os valores do vetor auxiliar para o vetor passado como parâmetro.
+        // Copia os valores do vetor auxiliar para o vetor passado como parâmetro.
         for (int i = 0; i < tamanho; i++){
             v[i+inicio] = aux[i];
         } 
@@ -159,10 +159,10 @@ void merge(int* v, int inicio, int meio, int fim, int modo) {
 */
 void mergeSort(int* vet, int inicio, int fim, int modo) {
     if (inicio < fim){
-        int meio = floor((fim + inicio)/2); // calcula a metade do vetor.
-        mergeSort(vet, inicio, meio, modo); // Aplica algoritmo recursivamente na primeira metade do vetor.
-        mergeSort(vet, meio+1, fim, modo); // Aplica algoritmo recursivamente na segunda metade do vetor.
-        merge(vet, inicio, meio, fim, modo); // junta as duas metádes do vetor, de acordo com o modo.
+        int meio = floor((fim + inicio)/2); // Calcula a metade do vetor.
+        mergeSort(vet, inicio, meio, modo); // Aplica algoritmo recursivamente na primeira metade do vetor, de acordo com o modo.
+        mergeSort(vet, meio+1, fim, modo); // Aplica algoritmo recursivamente na segunda metade do vetor, de acordo com o modo.
+        merge(vet, inicio, meio, fim, modo); // Junta as duas metádes do vetor, de acordo com o modo.
     }
 }
 
