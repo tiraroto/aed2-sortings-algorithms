@@ -24,13 +24,15 @@ int numeroAleatorio(int min, int max){
     return num;
 }
 
-/*
-* Embaralha Vetor
-* Escolhe uma posição aleatoria do vetor e troca com a da vez do loop.
+/* Embaralha Vetor
+* Escolhe uma posição aleatoria do vetor e troca com a de iteração.
+* @param vet  Vetor a ser embaralhado.
+* @param tam  tamanho do vetor.
+* @param min  posição de início do embaralhamento.
 */
-void embaralhaVetor(int* vet, int tam, int min, int max){
+void embaralhaVetor(int* vet, int tam, int min){
     for (int i = 0; i < tam; i++){
-        int rnd = numeroAleatorio(min, max);
+        int rnd = numeroAleatorio(min, tam);
 
         int aux = vet[i];
         vet[i] = vet[rnd];
@@ -53,17 +55,20 @@ int* numerosAleatorios(int qtNum, int min, int max){
     }
 
     // Embaralha o vetor
-    embaralhaVetor(vet, qtNum, min, max);
+    embaralhaVetor(vet, qtNum, min);
 
     return vet;
 
 }
 
-// Função de debug para imprimir vetores (pode ser apagada)
+/* [DEBUG] Impressão de valores inteiros de um vetor (pode ser apagada)
+* @param vet  Vetor a ser impresso.
+* @param tam  Tamanho do vetor.
+*/
 template <class T>
-void imprimeVetor(T* vet, int n){
+void imprimeVetor(T* vet, int tam){
     cout << vet[0];
-    for (int i = 1; i < n; i++){
+    for (int i = 1; i < tam; i++){
         cout << ", " << vet[i];
     }
     cout << endl;
