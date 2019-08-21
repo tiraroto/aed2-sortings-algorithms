@@ -102,12 +102,8 @@ void merge(int* v, int inicio, int meio, int fim, int modo) {
                     } else {
                         aux[i] = v[p2++];
                     }
-                    if (p1 > meio) {
-                        fim1 = true;
-                    }
-                    if (p2 > fim) {
-                        fim2 = true;
-                    }
+                    if (p1 > meio) { fim1 = true; }
+                    if (p2 > fim) { fim2 = true; }
                 } else {
                     if (!fim1){
                         aux[i] = v[p1++];
@@ -122,12 +118,8 @@ void merge(int* v, int inicio, int meio, int fim, int modo) {
                     } else {
                         aux[i] = v[p2++];
                     }
-                    if (p1 > meio) {
-                        fim1 = true;
-                    }
-                    if (p2 > fim) {
-                        fim2 = true;
-                    }
+                    if (p1 > meio) { fim1 = true; }
+                    if (p2 > fim) { fim2 = true; }
                 } else {
                     if (!fim1){
                         aux[i] = v[p1++];
@@ -177,11 +169,13 @@ void avaliar() {
     int op = 5; // Numero de operações
     double* tempo = new double[op]; // Vetor que armazena os tempos de execução
 
-    // Alocação dos vetores auxiliares
+    // Alocação dos vetores de entrada
     int** vetores = new int*[op];
     for (int i = 0; i < op; i++){
         vetores[i] = new int[n];
     }
+
+    /* Configuração das Entradas */
 
     // Vetor desordenado
     vetores[0] = numerosAleatorios(n, 0, n);
@@ -207,6 +201,7 @@ void avaliar() {
     mergeSort(vetores[4], 0, n/2, 1); // Ordena a primeira metade do vetor em ordem decrescente
     mergeSort(vetores[4], (n/2)+1, n, 0); // Ordena a segunda metade do vetor em ordem crescente
 
+    // Medição do tempo de execução do Merge Sort nos vetores de entrada
     for (int i = 0; i < op; i++){
         clock_t tick_inicio, tick_fim; 
         
