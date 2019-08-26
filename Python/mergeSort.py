@@ -2,6 +2,12 @@ import random
 import math
 import time
 
+"""
+    Ordena um vetor usando Merge Sort.
+    :param vet: Vetor a ser ordenado.
+    :param inv: Booleano para indicar ordenação decrescente.
+    :return: Retorna o vetor ordenado.
+"""
 def mergeSort(vet, inv):
     if len(vet) <= 1:
         return vet
@@ -12,12 +18,19 @@ def mergeSort(vet, inv):
     vet = merge(a, b, inv)
     return vet
 
+"""
+    Mescla dois vetores.
+    :param a: Primeiro vetor.
+    :param b: Segundo vetor
+    :param inv: Booleano para indicar ordenação decrescente.
+    :return: Retorna o vetor ordenado.
+"""
 def merge(a, b, inv):
     vet = []
-    indexA = 0
-    indexB = 0
+    indexA = 0 # Inicio da primeira metade
+    indexB = 0 # Inicio da segunda metade
     while indexA < len(a) and indexB < len(b):
-        if not inv:
+        if not inv: #Ordena em ordem crescente
             if a[indexA] < b[indexB]:
                 vet.append(a[indexA])
                 indexA += 1
@@ -29,7 +42,7 @@ def merge(a, b, inv):
                 vet.append(b[indexB])
                 indexA += 1
                 indexB += 1
-        else:
+        else: #Ordena em ordem decrescente
             if a[indexA] > b[indexB]:
                 vet.append(a[indexA])
                 indexA += 1
@@ -50,19 +63,27 @@ def merge(a, b, inv):
         vet.append(b[indexB])
         indexB += 1
     return vet
-
-# Testes de entrada
-testes = []
-tempos = []
-tamanho = 100
-nOp= 5
-meio = math.ceil(tamanho/2)
+"""
+    Contabiliza o tempo de execução para as seguintes entradas:
+    Vetor de inteiros:
+    - Desordenado.
+    - Ordenado crescente.
+    - Ordenado decrescente.
+    - Ordenado metade crescente, metade decrescente.
+    - Ordenado metade decrescente, metade crescente.
+"""
+testes = [] # Vetor que guarda os casos de teste
+tempos = [] # Vetor que guarda os tempos de execução para cada caso de teste
+tamanho = 100000 # Tamanho dos casos de teste
+nOp= 5 # número de casos de teste
+meio = math.ceil(tamanho/2) 
 
 # Vetor desordenado
 vet = []
 for i in range(tamanho):
     vet.append(random.randint(0,tamanho))
 print("Entrada 1 - Desordenado: \n", vet)
+
 # Cria 5 copias do vetor deordenado
 for i in range(nOp):
     testes.append(vet)
